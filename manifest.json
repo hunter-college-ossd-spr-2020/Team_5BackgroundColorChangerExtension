@@ -1,0 +1,20 @@
+{
+
+    "manifest_version": 2,
+    "name": "BackgroundColorChanger",
+    "version": "1.0",
+  
+    "description": "Changes the background color of all google pages.",
+  
+    "icons": {
+      
+    },
+  
+    "content_scripts": [
+      {
+        "matches": ["*://*.google.com/*"],
+        "js": ["backgroundColorChanger.js"]
+      }
+    ]
+  
+  }
