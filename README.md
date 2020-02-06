@@ -1,3 +1,3 @@
 # Welcome to Team_5's Text Color Editor  
 
-The following extension offers users the ability to change their current web page's text colors in four different colors red, blue, green, and black. Continue pressing our extension icon located right next to the bookmark star icon in firefox until the desired text color appears.  
+The following extension offers users the ability to change their current web page's text colors in four different colors red, blue, green, and black. Once the extension has been loaded, click on the current working tab and continue pressing on our black extension icon located right next to the bookmark star icon in firefox until the desired text color appears. This extension works best on google result pages. It is worth noting, that on some devices the extension does not work when you open a new tab after loading the add on, only on tabs that have already been opened on before the extension was loaded.   
