@@ -12,8 +12,7 @@
   },
 
   "page_action": {
-    "default_icon": "icons/palette-24px.svg",
-    "browser_style": true
+    "default_icon": "icons/palette-24px.svg"
   },
   
   "permissions": [
