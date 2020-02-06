@@ -12,7 +12,7 @@
   },
 
   "page_action": {
-    "default_icon": "icons/palette-24px.svg"
+    "default_icon": "icons/border-48.png"
   },
   
   "permissions": [
