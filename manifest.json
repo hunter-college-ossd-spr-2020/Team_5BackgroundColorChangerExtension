@@ -1,20 +1,24 @@
 {
 
-    "manifest_version": 2,
-    "name": "BackgroundColorChanger",
-    "version": "1.0",
+  "manifest_version": 2,
+  "name": "DivColorChanger",
+  "version": "1.0",
+
+  "description": "Page Inspect: Makes div text on page red when toggled. Can be used on any page where there are div tags with suitable text directly inside of tag (i.e. a google search for the color red)",
+
+
+  "background": {
+    "scripts": ["backgroundColorChanger.js"]
+  },
+
+  "page_action": {
+    "default_icon": "icons/palette-24px.svg",
+    "browser_style": true
+  },
   
-    "description": "Changes the background color of all google pages.",
-  
-    "icons": {
-      
-    },
-  
-    "content_scripts": [
-      {
-        "matches": ["*://*.google.com/*"],
-        "js": ["backgroundColorChanger.js"]
-      }
-    ]
-  
-  }
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ]
+
+}
