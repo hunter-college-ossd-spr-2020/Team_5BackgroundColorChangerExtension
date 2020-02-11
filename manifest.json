@@ -1,14 +1,14 @@
 {
 
   "manifest_version": 2,
-  "name": "DivColorChanger",
+  "name": "TextColorChanger",
   "version": "1.0",
 
-  "description": "Page Inspect: Makes div text on page red when toggled. Can be used on any page where there are div tags with suitable text directly inside of tag (i.e. a google search for the color red)",
+  "description": "Page Inspect: Changes the color of div text on page between red, blue and green when toggled. Can be used on any page where there are div tags with suitable text directly inside of tag (i.e. wiki page, a google search for the color red)",
 
 
   "background": {
-    "scripts": ["backgroundColorChanger.js"]
+    "scripts": ["textColorChanger.js"]
   },
 
   "page_action": {
