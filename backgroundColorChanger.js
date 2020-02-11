@@ -5,13 +5,17 @@ const COLOR_RED = "body { color: red; } div { color: red; } span { color: red; }
 const COLOR_BLUE = "body { color: blue; } div { color: blue; } span { color: blue; } a { color: blue; text-color: blue; } h { color: blue; } p { color: blue; } details { color: blue; } li { color: blue; } em { color: blue; }";
 const COLOR_GREEN = "body { color: green; } div { color: green; } span { color: green; } a { color: green; text-color: green; } h { color: green; } p { color: green; } details { color: green; } li { color: green; } em { color: green; }";
 
+/**
+ * Title constants for color; (on hover of addon icon, display next title)
+ */
 const TEXT_RED = "Turn text red";
 const TEXT_BLUE = "Turn text blue";
 const TEXT_GREEN = "Turn text green";
 const TEXT_DEFAULT = "Default text";
 
-// toggle between red, blue, green, and default text color
-
+/**
+ *  Switch CSS Text Color (between red, blue, green, and default text color) 
+ */
 function toggleCSS(tab) {
   function gotTitle(title) {
     if (title === TEXT_RED) {
@@ -27,33 +31,48 @@ function toggleCSS(tab) {
       browser.pageAction.setTitle({tabId: tab.id, title: TEXT_DEFAULT});
       browser.tabs.removeCSS({code: COLOR_BLUE});
       browser.tabs.insertCSS({code: COLOR_GREEN});
+
     } else{
       browser.pageAction.setTitle({tabId: tab.id, title: TEXT_RED});
       browser.tabs.removeCSS({code: COLOR_GREEN});
+
     }
 
   }
   
+  /* Get Current Page Title */
   var getTitle = browser.pageAction.getTitle({tabId: tab.id});
-  getTitle.then(gotTitle); // get current page title, and 
+  getTitle.then(gotTitle); 
 }
 
+/**
+ * Initialize all tabs with the addon (using pageAction)
+ */
 var getAllTabs = browser.tabs.query({}); // grab all tabs
 
-// for each tab, intialize the page
+
+/**
+ * For each tab, initialize the addon (set icon, default color...)
+ */
 getAllTabs.then((tabs) => {
   for (let tab of tabs) {
-    browser.pageAction.setTitle({tabId: tab.id, title: TEXT_RED}); // title of action (on hover)
-    browser.pageAction.show(tab.id); // show page action icon
-
+    browser.pageAction.setTitle({tabId: tab.id, title: TEXT_RED}); /* Title of action (default red) */
+    browser.pageAction.show(tab.id); /* Show page action icon */
   }
 });
 
+
+/**
+ *  Check for updates on tab and set addon title and icon for page
+ */
 browser.tabs.onUpdated.addListener((id, newInfo, tab) => {
-  browser.pageAction.setTitle({tabId: tab.id, title: TEXT_RED}); // title of action (on hover)
-  browser.pageAction.show(tab.id); // show page action icon
+  browser.pageAction.setTitle({tabId: tab.id, title: TEXT_RED}); /* Title of action (default red)*/
+  browser.pageAction.show(tab.id); /* Show page action icon */
 
 });
 
-// Listen for icon click event, when click, toggle color
+
+/**
+ * Listen for icon click event, when click, toggle color 
+ */
 browser.pageAction.onClicked.addListener(toggleCSS);
