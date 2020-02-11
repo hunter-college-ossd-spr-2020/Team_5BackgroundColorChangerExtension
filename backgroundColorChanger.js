@@ -7,7 +7,8 @@ const TEXT_BLUE = "Turn text blue";
 const TEXT_GREEN = "Turn text green";
 const TEXT_DEFAULT = "Default text";
 
-// toggle between red text and no red text
+// toggle between red, blue, green, and default text color
+
 function toggleCSS(tab) {
   function gotTitle(title) {
     if (title === TEXT_RED) {
@@ -34,24 +35,21 @@ function toggleCSS(tab) {
   getTitle.then(gotTitle); // get current page title, and 
 }
 
-// Initialize page action set a hover note to user and
-function initializePageAction(tab) {
-  browser.pageAction.setTitle({tabId: tab.id, title: TEXT_RED}); // title of action (on hover)
-  browser.pageAction.show(tab.id); // show page action icon
-}
-
-
 var getAllTabs = browser.tabs.query({}); // grab all tabs
 
 // for each tab, intialize the page
 getAllTabs.then((tabs) => {
   for (let tab of tabs) {
-    initializePageAction(tab);
+    browser.pageAction.setTitle({tabId: tab.id, title: TEXT_RED}); // title of action (on hover)
+    browser.pageAction.show(tab.id); // show page action icon
+
   }
 });
 
-browser.tabs.onUpdated.addListener((tab) => {
-  initializePageAction(tab);
+browser.tabs.onUpdated.addListener((id, newInfo, tab) => {
+  browser.pageAction.setTitle({tabId: tab.id, title: TEXT_RED}); // title of action (on hover)
+  browser.pageAction.show(tab.id); // show page action icon
+
 });
 
 // Listen for icon click event, when click, toggle color
