@@ -1,6 +1,9 @@
-const COLOR_RED = "div { color: red; }";
-const COLOR_BLUE = "div { color: blue; }";
-const COLOR_GREEN = "div { color: green; }";
+/**
+ * CSS Styling for Text Color Change
+ */
+const COLOR_RED = "body { color: red; } div { color: red; } span { color: red; } a { color: red; text-color: red; } h { color: red; } p { color: red; } details { color: red; } li { color: red; } em { color: red; }";
+const COLOR_BLUE = "body { color: blue; } div { color: blue; } span { color: blue; } a { color: blue; text-color: blue; } h { color: blue; } p { color: blue; } details { color: blue; } li { color: blue; } em { color: blue; }";
+const COLOR_GREEN = "body { color: green; } div { color: green; } span { color: green; } a { color: green; text-color: green; } h { color: green; } p { color: green; } details { color: green; } li { color: green; } em { color: green; }";
 
 const TEXT_RED = "Turn text red";
 const TEXT_BLUE = "Turn text blue";
